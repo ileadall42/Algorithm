@@ -16,7 +16,6 @@ int main(int argc, char const *argv[])
     {
         printf("haha \n");
     }
-
     getstart(a);
     return 0;
 }
