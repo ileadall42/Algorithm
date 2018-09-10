@@ -19,7 +19,6 @@ int main(int argc, char const *argv[])
     getstart(a);
     printf("add new change of this file");
     return 0;
-
 }
 
 void getstart(int a)
