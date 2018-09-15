@@ -1,29 +1,35 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-const int MAX = 4;
-
-int main(int argc, const char *argv[])
+int max(int a, int b)
 {
-
-    const char *names[MAX] = {
-        "Zara Ali",
-        "Hina Ali",
-        "Nuha Ali",
-        "Sara Ali",
-    };
-
-    for (int i = 0; i < MAX; i++)
+    if (a >= b)
+        return a;
+    else
+        return b;
+}
+int main()
+{
+    string s;
+    cin >> s;
+    s += s;
+    int ans = 1;
+    for (int i = 0; i < s.size(); i++)
     {
-        cout << " --- names[i]              = " << names[i] << endl;
-        cout << " --- *names[i]             = " << *names[i] << endl;
-        cout << endl;
-        cout << " --- (*names[i] + 1)       = " << (*names[i] + 1) << endl;
-        cout << " --- (char)(*names[i] + 1) = " << (char)(*names[i] + 1) << endl;
-        cout << " ------------------------------------ " << endl
-             << endl
-             << endl
-             << endl;
+        int j = 1;
+        while (i != s.size() - 1 && s[i] != s[i + 1])
+        {
+            i++;
+            j++;
+        }
+        ans = max(ans, j);
     }
+    if (s.size() / 2 < ans)
+    {
+        ans = s.size() / 2;
+    }
+    printf("%d\n", ans);
     return 0;
 }
