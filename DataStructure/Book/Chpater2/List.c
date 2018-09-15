@@ -33,13 +33,14 @@ Status listInsert(SqList *L, int i, ElemType e) /* 算法2.4 */
         (*L).elem = newbase;            /* 新基址 */
         (*L).listsize += LISTINCREMENT; /* 增加存储容量 */
     }
-    q = (*L).elem + i - 1;                             /* q为插入位置 */
+    q = (*L).elem + i - 1;                             /* q为插入位置  指针的获取是获得首地址 */ 
     for (p = (*L).elem + (*L).length - 1; p >= q; --p) /* 插入位置及之后的元素右移 */
         *(p + 1) = *p;
     *q = e;        /* 插入e */
     ++(*L).length; /* 表长增1 */
     return OK;
 }
+
 
 int main(int argc, char const *argv[])
 {
@@ -55,7 +56,6 @@ int main(int argc, char const *argv[])
     for (j = 1; j <= 5; j++)
         i = listInsert(&L, 1, j);
     printf("在L的表头依次插入1～5后：*L.elem=");
-
     printf("初始化数组成功了。\n");
     for (j = 1; j <= 5; j++)
         printf("%d ", *(L.elem + j - 1));
